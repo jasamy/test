@@ -1,0 +1,11 @@
+/*********************
+BREAKPOINTS
+*********************/
+
+ @mixin breakpoint($point) {
+ 	@if $point == mobileonly {
+     @media (max-device-width: 720px)  { @content ; }
+     @media (max-width: 720px)  { @content ; }
+
+  }
+}

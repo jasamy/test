@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+img { 
+	float:left;
+	margin:10px;
+	height:150px;
+	width: auto;
+	cursor:pointer;
+}
+.selected { 
+	outline: 3px dashed red;
+	outline-offset: -4px;
+}
+</style>
+<script>
+		function cb(data) {
+			// use returned data
+			var pics = data.items;
+				
+			var contents = "";
+				
+			for (i=0; i<pics.length; i++) {
+				var selected = localStorage.getItem(pics[i].link) || "";
+				contents += "<img onclick='toggleClass(this)' data-link="+pics[i].link+" class='"+selected+"' src='"+pics[i].media.m+"'>";
+				localStorage.setItem(pics[i].link, selected)
+			}
+			document.getElementById("main").innerHTML = contents;
+		}
+					
+		function toggleClass(e) {
+			e.classList.toggle('selected');
+			if (localStorage.getItem(e.dataset.link) !== "selected") {
+				localStorage.setItem(e.dataset.link, "selected");
+			} else {
+				localStorage.setItem(e.dataset.link, "");
+			}
+		}
+		
+</script>
+</head>
+<body>
+	<div id="main"></div>
+	<script type="text/javascript">
+		(function() {
+			var tags = 'london';
+			var script = document.createElement('script');
+			script.src = 'http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=cb&tags='+tags;
+			document.head.appendChild(script);
+		})();
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+// Variables
+@import "partials/base";
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300);
+@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+// Partials
+@import "partials/reset";
+@import "partials/typography";
+@import "partials/breakpoints";
+@import "partials/grid";
+@import "partials/navbar";
+@import "partials/social";
+@import "partials/nested";
+
+.main_logo i {
+	padding:10px;
+}
+
+.main_logo .fa {
+	font-size:300%;
+	color: $rust-color;
+}
+
+.footer {
+	background-color: $rust-color;
+}
+
+.collapse {
+	display:none;
+}
+
+.collapse:active + .nav_expand, .collapse:hover + .nav_expand {
+	display:block;
+	
+}
+
+.nav_expand:active, .nav_expand:hover {
+	display:block;
+
+}
+
+@include breakpoint(mobileonly) {
+	.collapse {
+		display: block;
+	}
+	.nav_expand {
+		display: none;
+	}
+	.side_panel {
+		display:none;
+	}
+	.grid2 {
+		width:20%;
+	}
+	.grid6 {
+		width:70%;
+	}
+	.footer {
+		display:none;
+	}
+}
+

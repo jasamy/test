@@ -1,0 +1,47 @@
+ul.social_top {
+	display:block;
+}
+
+ul.social_bottom {
+	display:none;
+}
+
+ul.social {
+	padding:0px;
+}
+
+.social li {
+	list-style-type: none;
+	width:40px;
+	height:40px;
+	float:left;
+	margin:10px 20px 0 0;
+	padding:10px;
+	color: #FFF !important;
+	text-align:center;
+	line-height:1.5em;
+	border-radius: 40px 40px 40px 40px;
+	-moz-border-radius: 40px 40px 40px 40px;
+	-webkit-border-radius: 40px 40px 40px 40px;
+	border: 1px solid $rust-color;	
+}
+
+.social .fa {
+	font-size:200%;
+	color: $rust-color;
+	transition: .3s color;
+}
+
+.social .fa:hover {
+	color: #000;
+}
+
+
+@include breakpoint(mobileonly) {
+	ul.social_top {
+		display: none;
+	}
+	ul.social_bottom {
+		display: block;
+	}
+}
